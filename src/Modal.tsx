@@ -1,6 +1,15 @@
-import React, { useState } from "react";
+import React, { PropsWithChildren, ReactElement, useState } from "react";
 
-const Modal = ({ isOpen, onClose, children }) => {
+interface Props {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+const Modal: React.FC<PropsWithChildren<Props>> = ({
+  isOpen,
+  onClose,
+  children,
+}) => {
   const [isAnimating, setIsAnimating] = useState(false);
 
   const handleClose = () => {
