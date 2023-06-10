@@ -1,38 +1,54 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.modal-window {
+  background: #fff;
+  max-width: 70vw;
+  max-height: 70vh;
+  min-width: 250px;
+  min-height: 250px;
+  padding-top: 35px;
+  position: relative;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.modal.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal.animating {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: scale(0.8);
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+}
+
+.modal-close {
+  background-color: #ccc;
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.modal-close:hover {
+  background-color: #999;
 }
